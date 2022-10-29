@@ -1,6 +1,13 @@
 #include "function.h"
 #include <math.h>
 #include <stdlib.h>
+#include <fstream>
+#include <iostream>
+
+
+using namespace std;
+const int INPUT_VALUES = 7;
+const int INPUT_INT_VALUES = 5;
 
 // Реализация функций
 
@@ -60,8 +67,9 @@ void* upRegularize( // Функция формирующая упорядоче�
 // Функции сортировки последовательностей
 
 // Алгоритм Better Linear Search
-int* betterLinearSearch (int* arr, int& size, int& key) {
+int betterLinearSearch(int* arr, int& size, int& key, int& count) {
     for (int i = 0; i < size; i++) { // Цикл по всем элементам массива
+        count++;
         if (arr[i] == key) { // Проверка элемента на ключ-число
             return i; // Возвращения номера нужного элемента
         }
@@ -69,8 +77,9 @@ int* betterLinearSearch (int* arr, int& size, int& key) {
     return -1; // Возвращение -1 при отсудствии нужного элемента
 }
 
-int* betterLinearSearch (float* arr, int& size, float& key) {
+int betterLinearSearch(float* arr, int& size, int& key, int& count) {
     for (int i = 0; i < size; i++) { // Цикл по всем элементам массива
+        count++;
         if (arr[i] == key) { // Проверка элемента на ключ-число
             return i; // Возвращения номера нужного элемента
         }
@@ -79,42 +88,45 @@ int* betterLinearSearch (float* arr, int& size, float& key) {
 }
 
 // Алгоритм Sentinel Linear Search
-int* sentinelLinearSearch (int* arr, int& size, int& key) {
-    int last = arr[size - 1];                                                                                                                         
+int sentinelLinearSearch(int* arr, int& size, int& key, int& count) {
+    int last = arr[size - 1];
     arr[size - 1] = key;
-    int i = 0;                  
-    while(arr[i] != key) {
-        i++;   
+    int i = 0;
+    while (arr[i] != key) {
+        count++;
+        i++;
     }
     arr[size - 1] = last;
-    if((i < size - 1) || (key == arr[size - 1])) {
+    if ((i < size - 1) || (key == arr[size - 1])) {
         return i;
     }
     return -1;
 }
 
-int* sentinelLinearSearch (float* arr, int& size, float& key) {
-    float last = arr[size - 1];                                                                                                                         
+int sentinelLinearSearch(float* arr, int& size, int& key, int& count) {
+    float last = arr[size - 1];
     arr[size - 1] = key;
-    int i = 0;                  
-    while(arr[i] != key) {
-        i++;   
+    int i = 0;
+    while (arr[i] != key) {
+        count++;
+        i++;
     }
     arr[size - 1] = last;
-    if((i < size - 1) || (key == arr[size - 1])) {
+    if ((i < size - 1) || (key == arr[size - 1])) {
         return i;
     }
     return -1;
 }
 
 // Алгоритм бинарного поиска
-int* binarySearch (int* arr, int& size, int& key) {
+int binarySearch(int* arr, int& size, int& key, int& count) {
     int low = 0;
     int high = size;
     int mid;
-    while(low <= high) {
-        mid = int((low + high) / 2); 
-        if(key < arr[mid]) {
+    while (low <= high) {
+
+        mid = int((low + high) / 2);
+        if (key < arr[mid]) {
             high = mid - 1;
         }
         else if (key > arr[mid]) {
@@ -127,13 +139,14 @@ int* binarySearch (int* arr, int& size, int& key) {
     return -1;
 }
 
-int* binarySearch (float* arr, int& size, float& key) {
+int binarySearch(float* arr, int& size, int& key, int& count) {
     int low = 0;
     int high = size;
     int mid;
-    while(low <= high) {
-        mid = int((low + high) / 2); 
-        if(key < arr[mid]) {
+    while (low <= high) {
+
+        mid = int((low + high) / 2);
+        if (key < arr[mid]) {
             high = mid - 1;
         }
         else if (key > arr[mid]) {
