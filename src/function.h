@@ -3,8 +3,12 @@
 
 // Прототипы функций
 
+bool checkFile(              //Функция, проверяющая входные данные
+    const char* FILE_NAME_IN //Имя файла
+);
+
 // Функции генерации последовательностей
-void* allRandom ( // Функция формирующая случайную последовательность
+void* allRandom( // Функция формирующая случайную последовательность
     int* arr, // Массив
     int& size, // Количество элементов
     int& interval, // Интервал
@@ -12,7 +16,7 @@ void* allRandom ( // Функция формирующая случайную п
     int& maxLimitation // Ограничение на максимальное число
 );
 
-void* allRandom ( // Функция формирующая случайную последовательность
+void* allRandom( // Функция формирующая случайную последовательность
     float* arr, // Массив
     int& size, // Количество элементов
     int& interval, // Интервал
@@ -20,7 +24,7 @@ void* allRandom ( // Функция формирующая случайную п
     float& maxLimitation // Ограничение на максимальное число
 );
 
-void* upRegularize ( // Функция формирующая упорядоченную последовательность по возрастанию
+void* upRegularize( // Функция формирующая упорядоченную последовательность по возрастанию
     int* arr, // Массив
     int& size, // Количество элементов
     int& interval, // Интервал
@@ -28,7 +32,7 @@ void* upRegularize ( // Функция формирующая упорядоче
     int& maxLimitation // Ограничение на максимальное число
 );
 
-void* upRegularize ( // Функция формирующая упорядоченную последовательность по возрастанию
+void* upRegularize( // Функция формирующая упорядоченную последовательность по возрастанию
     float* arr, // Массив
     int& size, // Количество элементов
     int& interval, // Интервал
@@ -39,15 +43,15 @@ void* upRegularize ( // Функция формирующая упорядоче
 // Функции сортировки последовательностей
 
 // Алгоритм Better Linear Search
-int* betterLinearSearch (int* arr, int& size, int& key);
-int* betterLinearSearch (float* arr, int& size, float& key);
+int betterLinearSearch(int* arr, int& size, int& key, int& count);
+int betterLinearSearch(float* arr, int& size, int& key, int& count);
 
 // Алгоритм Sentinel Linear Search
-int* sentinelLinearSearch (int* arr, int& size, int& key);
-int* sentinelLinearSearch (float* arr, int& size, float& key);
+int sentinelLinearSearch(int* arr, int& size, int& key, int& count);
+int sentinelLinearSearch(float* arr, int& size, int& key, int& count);
 
 // Алгоритм бинарного поиска
-int* binarySearch (int* arr, int& size, int& key);
-int* binarySearch (float* arr, int& size, float& key);
+int binarySearch(int* arr, int& size, int& key, int& count);
+int binarySearch(float* arr, int& size, int& key, int& count);
 
 #endif
